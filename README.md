@@ -1,0 +1,1 @@
+The postgres server can be created using the docker-compose file.
