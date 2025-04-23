@@ -6,8 +6,18 @@ const { connectToDatabase } = require('./util/db')
 
 const blogsRouter = require('./controllers/blogs')
 
+const errorHandler = (error, req, res, next) => {
+  console.error(error)
+  if (error.name === 'SequelizeDatabaseError' || error.name === 'SequelizeValidationError') {
+    return res.status(400).send({ error:error.message })
+  }
+  next(error)
+}
+
 app.use(express.json())
 app.use('/api/blogs', blogsRouter)
+app.use(errorHandler)
+
 
 const start = async () => {
   await connectToDatabase()
