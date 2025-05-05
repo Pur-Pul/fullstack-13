@@ -9,11 +9,12 @@ const blogFinder = async (req, res, next) => {
     next()
 }
 
-const tokenExtractor = (req, res, next) => {
+const tokenExtractor = async (req, res, next) => {
     const authorization = req.get('authorization')
     if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
         try {
-            req.decodedToken = jwt.verify(authorization.substring(7), SECRET)
+            const decodedToken = jwt.verify(authorization.substring(7), SECRET)
+            req.user = await User.findByPk(decodedToken.id)
         } catch(e) {
             next(e)
         }
@@ -30,17 +31,20 @@ router.get('/', async (req, res) => {
 
 router.post('/', tokenExtractor, async (req, res, next) => {
     try {
-        const user = await User.findByPk(req.decodedToken.id)
-        const blog = await Blog.create({...req.body, userId: user.id})
+        const blog = await Blog.create({...req.body, userId: req.user.id})
         return res.json(blog)
     } catch(error) {
         next(error)
     }
 })
 
-router.delete('/:id', blogFinder, async (req, res) => {
+router.delete('/:id', [tokenExtractor, blogFinder], async (req, res) => {
     if (req.blog) {
-        await req.blog.destroy()
+        if (req.blog.userId === req.user.id) {
+            await req.blog.destroy()
+        } else {
+            res.status(403).end()
+        }
     }
     res.status(204).end()
 })

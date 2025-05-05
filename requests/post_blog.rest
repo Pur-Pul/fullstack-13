@@ -1,9 +1,9 @@
 POST http://localhost:3001/api/blogs/ HTTP/1.1
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyM0B0ZXN0LmNvbSIsImlkIjozLCJpYXQiOjE3NDY0Mzk1OTN9.tkOwrGhlB1a5St74XXk-hhklMETAGC-iXubi_Vzdg7w
 content-type: application/json
 
 {
-    "author": "Author 2",
-    "url": "www.blog3.com",
-    "title": "Blog3"
+    "author": "Author3",
+    "url": "www.blog4.com",
+    "title": "Blog5"
 }
