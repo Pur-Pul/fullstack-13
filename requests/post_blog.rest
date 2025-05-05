@@ -3,7 +3,8 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 content-type: application/json
 
 {
-    "author": "Author3",
-    "url": "www.blog3.com",
-    "title": "Blog3"
+    "author": "Author",
+    "url": "www.blognewnewnew.com",
+    "title": "Blognewnewnew",
+    "likes": "20"
 }
