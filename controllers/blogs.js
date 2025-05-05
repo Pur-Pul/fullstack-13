@@ -3,6 +3,7 @@ const { removeTicks } = require('sequelize/lib/utils')
 const { Blog, User } = require('../models')
 const jwt = require('jsonwebtoken')
 const { SECRET } = require('../util/config')
+const { Op } = require('sequelize')
 
 const blogFinder = async (req, res, next) => {
     req.blog = await Blog.findByPk(req.params.id)
@@ -30,6 +31,11 @@ router.get('/', async (req, res) => {
         include: {
             model: User,
             attributes: ['name']
+        },
+        where: {
+            title: {
+                [Op.iLike]: req.query.search ? '%'+req.query.search+'%' : '%%'
+            }
         }
     })
     res.json(blogs)
