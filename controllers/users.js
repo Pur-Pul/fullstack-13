@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { User, Blog } = require('../models')
+const { User, Blog, ReadingList } = require('../models')
 
 router.post('/', async (req, res, next) => {
   try {
@@ -19,6 +19,23 @@ router.get('/', async (req, res) => {
         }
     })
     res.json(users)
+})
+
+router.get('/:id', async (req, res) => {
+    const user = await User.findByPk(req.params.id, {
+        include: {
+            model: Blog,
+            as: 'readings',
+            through: {
+                attributes: []
+            }
+        }
+    })
+    if (user) {
+        res.json(user)
+    } else {
+        res.status(404).end()
+    }
 })
 
 router.put('/:username', async (req, res, next) => {
