@@ -1,10 +1,10 @@
 POST http://localhost:3001/api/blogs/ HTTP/1.1
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyM0B0ZXN0LmNvbSIsImlkIjozLCJpYXQiOjE3NDY0Mzk1OTN9.tkOwrGhlB1a5St74XXk-hhklMETAGC-iXubi_Vzdg7w
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyQHRlc3QuY29tIiwiaWQiOjEsImlhdCI6MTc0NjUyOTI0NX0.JlIfGqIW5xJgbYWx50_34MoLgJ7ZJtzfUNEx0jJQ1MQ
 content-type: application/json
 
 {
     "author": "Author",
-    "url": "www.blognewnewnew.com",
-    "title": "Blognewnewnew",
-    "likes": "20"
+    "url": "www.blog.com",
+    "title": "Blog",
+    "likes": "0"
 }
