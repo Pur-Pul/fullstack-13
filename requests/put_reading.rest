@@ -1,8 +1,6 @@
-POST http://localhost:3001/api/readinglists/ HTTP/1.1
+PUT http://localhost:3001/api/readinglists/1 HTTP/1.1
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RVc2VyQHRlc3QuY29tIiwiaWQiOjEsImlhdCI6MTc0NjUzMDQ2M30.hoYVY1wtInjccW3feCWZ4zzKd_ZwSM1tabz7XOiahlc
 content-type: application/json
 
 {
-    "userId" : "1",
-    "blogId" : "2"
 }

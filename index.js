@@ -26,7 +26,7 @@ app.use('/api/blogs', blogsRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 app.use('/api/authors', authorRouter)
-app.use('/api/readinglist', readingRouter)
+app.use('/api/readinglists', readingRouter)
 app.use(errorHandler)
 
 
