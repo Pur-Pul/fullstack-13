@@ -3,9 +3,9 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 content-type: application/json
 
 {
-    "author": "Author1",
-    "url": "www.blog1.com",
-    "title": "Blog1",
+    "author": "Author2",
+    "url": "www.blog2.com",
+    "title": "Blog2",
     "likes": "0",
     "year": "2025"
 }
